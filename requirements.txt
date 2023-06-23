@@ -27,7 +27,7 @@ htmlmin==0.1.12
 idna==3.4
 ImageHash==4.3.1
 ipykernel==6.16.0
-ipython==8.12.0
+ipython==7.34.0
 ipywidgets==8.0.6
 jedi==0.18.2
 Jinja2==3.1.2
