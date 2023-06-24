@@ -58,7 +58,7 @@ def cantidad_filmaciones_dia(dia:str):
         respuesta = {'No corresponde a un día de la semana'}
         return respuesta   
    
-    df_movies = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\movies_final.csv')
+    df_movies = pd.read_csv(dir_actual+'movies_final.csv')
     df_movies["release_date"] = pd.to_datetime(df_movies["release_date"], infer_datetime_format=False)
     df_movies["release_day"] = df_movies["release_date"].dt.weekday
     respuesta = df_movies.loc[df_movies["release_day"] == ndia].shape[0]
@@ -68,7 +68,7 @@ def cantidad_filmaciones_dia(dia:str):
 @app.get('/score_titulo/{titulo}')
 def score_titulo(titulo:str):
     titulo = titulo.lower()
-    df_movies = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\movies_final.csv')
+    df_movies = pd.read_csv(dir_actual+'movies_final.csv')
     df_movies["title"] = df_movies["title"].str.lower()
     df_query = df_movies[df_movies["title"].str.contains(titulo)]
     tot_sel=df_query['title'].count()
@@ -86,7 +86,7 @@ def score_titulo(titulo:str):
 @app.get('/votos_titulo/{titulo}')
 def votos_titulo(titulo:str):
     titulo = titulo.lower()
-    df_movies = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\movies_final.csv')
+    df_movies = pd.read_csv(dir_actual+'movies_final.csv')
     df_movies["title"] = df_movies["title"].str.lower()
     
     df_query = df_movies[df_movies["title"] == titulo]
@@ -113,10 +113,10 @@ def votos_titulo(titulo:str):
 @app.get('/get_actor/{nombre_actor}')
 def get_actor(nombre_actor:str):
     nombre_actor = nombre_actor.lower() #convierto en minuscula la variables
-    df_movies = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\movies_final.csv')
+    df_movies = pd.read_csv(dir_actual+'movies_final.csv')
     df_movies = df_movies.rename(columns={"id": "id_film"}) # renombro la columna id
 
-    df_casting = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\casting_final.csv')
+    df_casting = pd.read_csv(dir_actual+'casting_final.csv')
     df_casting["name_actor"] = df_casting["name_actor"].str.lower() #convierto en minuscula la columna
         
     df_total=pd.merge(df_movies, df_casting, on = 'id_film', how = 'inner')
@@ -141,10 +141,10 @@ def get_director(nombre_director:str):
     Además, deberá devolver el nombre de cada película con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma.'''
  
     nombre_director = nombre_director.lower() #convierto en minuscula la variables
-    df_movies = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\movies_final.csv')
+    df_movies = pd.read_csv(dir_actual+'movies_final.csv')
     df_movies = df_movies.rename(columns={"id": "id_film"}) # renombro la columna id
 
-    df_directors = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\directors_final.csv')
+    df_directors = pd.read_csv(dir_actual+'directors_final.csv')
     df_directors["name_director"] = df_directors["name_director"].str.lower() #convierto en minuscula la columna
         
     df_total=pd.merge(df_movies, df_directors, on = 'id_film', how = 'inner')
@@ -184,7 +184,7 @@ def get_director(nombre_director:str):
 def recomendacion(titulo:str):
     '''Ingresas un nombre de pelicula y te recomienda las similares en una lista'''
     # Leer el archivo CSV y convertirlo en un DataFrame
-    df_movies = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\movies_final.csv')
+    df_movies = pd.read_csv(dir_actual+'movies_final.csv')
 
     search_word = titulo
     # Crear un nuevo dataframe df_movies_final eliminando las filas con budget igual a 0
