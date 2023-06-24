@@ -15,8 +15,9 @@ def index():
     cfun3 = ["ingresa el título de una filmación esperando como respuesta el título, el año de estreno y el score /score_titulo/{titulo}"]
     cfun4 = ["ingresa el título de una filmación esperando como respuesta el título, la cantidad de votos y el valor promedio de las votaciones /votos_titulo/{titulo}"]
     cfun5 = ["ingresa nombre de actor para devolver el éxito a través del retorno y cantidad de películas que participó y el promedio de retorno /get_actor/{nombre_actor"]  
-    cfun6 = ["ingresa nombre de director para devolver el éxito del mismo medido a través del retorno, nombre de sus películas"]
-    cfun7 = ["con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma."]
+    cfun6 = ["ingresa nombre de director para devolver el éxito del mismo medido a través del retorno, nombre de sus películas, "]
+    cfun6 = cfun6 + ["con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma. /get_director(nombre_director)"]
+    cfun7 = ['Ingresas un nombre de pelicula y te recomienda las similares en una lista. /recomendacion/{titulo}']
 
     milista = cfun1+cfun2+cfun3+cfun4+cfun5+cfun6+cfun7
     return milista
@@ -40,7 +41,7 @@ def cantidad_filmaciones_mes(mes:str):
     df_movies["release_month"] = df_movies["release_date"].apply(lambda x: x[5:7]).astype('int')
     respuesta = df_movies.loc[df_movies["release_month"] == nmes].shape[0]
     '''Se ingresa el mes y la funcion retorna la cantidad de peliculas que se estrenaron ese mes historicamente'''
-    return {'mes':mes, 'cantidad':respuesta}
+    return {'mes':mes, 'cantidad':str(respuesta)}
 
 
 @app.get('/cantidad_filmaciones_dia/{dia}')
@@ -58,7 +59,7 @@ def cantidad_filmaciones_dia(dia:str):
     df_movies["release_day"] = df_movies["release_date"].dt.weekday
     respuesta = df_movies.loc[df_movies["release_day"] == ndia].shape[0]
     '''Se ingresa el dia y la funcion retorna la cantidad de peliculas que se estrenaron ese dia historicamente'''
-    return {'dia':dia, 'cantidad':respuesta}
+    return {'dia':dia, 'cantidad':str(respuesta)}
 
 @app.get('/score_titulo/{titulo}')
 def score_titulo(titulo:str):
