@@ -5,8 +5,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from fastapi import FastAPI
 from datetime import datetime
+import os
 
 app = FastAPI()
+
+dir_actual = os.getcwd()+'\\Data\\' 
+
 
 @app.get("/")
 def index():
@@ -37,7 +41,7 @@ def cantidad_filmaciones_mes(mes:str):
         respuesta = {'No corresponde a un mes del año'}
         return respuesta  
     
-    df_movies = pd.read_csv('C:\Soy-Henry\Film recommendation model\Data\movies_final.csv')
+    df_movies = pd.read_csv(dir_actual+'movies_final.csv')
     df_movies["release_month"] = df_movies["release_date"].apply(lambda x: x[5:7]).astype('int')
     respuesta = df_movies.loc[df_movies["release_month"] == nmes].shape[0]
     '''Se ingresa el mes y la funcion retorna la cantidad de peliculas que se estrenaron ese mes historicamente'''
