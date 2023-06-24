@@ -9,7 +9,7 @@ import os
 
 app = FastAPI()
 
-dir_actual = os.getcwd()+'\\Data\\' 
+dir_actual = os.getcwd()+'/Data/' 
 
 
 @app.get("/")
