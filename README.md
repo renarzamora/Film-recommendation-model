@@ -1,6 +1,6 @@
 # Film Recommendation Model
 
-## - Proyecto: Desarrollar e implementar un modelo de recomendación de películas, usar FastApi y montarla en Render, previamente realizar ETL y EDA sobre los datasets originales.
+### - Proyecto: Desarrollar e implementar un modelo de recomendación de películas, usar FastApi y montarla en Render, previamente realizar ETL y EDA sobre los datasets originales.
 
 ## Requerimientos:
 Desarrollado en Python:
@@ -24,11 +24,17 @@ Aplicación montada en Render:
 https://film-recommendation-model-nzqm.onrender.com/
 
 **/cantidad_filmaciones_mes/{mes}** retorna la cantidad de peliculas que se estrenaron en ese mes historicamente, ejemplo: enero / febrero / marzo, etc.
+
 **/cantidad_filmaciones_dia/{dia}** retorna la cantidad de peliculas que se estrenaron en ese día historicamente, ejemplo: lunes / martes / miercoles, etc.
+
  **/score_titulo/{titulo}** ingresa el título de una filmación esperando como respuesta el título, el año de estreno y el score, ejemplo: /score_titulo/toy story
+
 **/votos_titulo/{titulo}** ingresa el título de una filmación esperando como respuesta el título, la cantidad de votos y el valor promedio de las votaciones, deberá de contar con al menos 2000 valoraciones para mostrar resultados, ejemplo /votos_titulo/Jumanji
+
  **/get_actor/{nombre_actor}**  ingresa nombre de actor para devolver el éxito a través del retorno y cantidad de películas que participó y el promedio de retorno, ejemplo: /get_actor/Salma Hayek
+
 **/get_director/{nombre_director}** ingresa nombre de director para devolver el éxito del mismo medido a través del retorno, nombre de sus películas, con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma, ejemplo: /get_director/Martin Scorsese
+
 **/recomendacion/{titulo}** Ingresas un nombre de pelicula y te recomienda las similares en una lista, ejemplo /recomendacion/tomorrow
 
 ### Análisis exploratorio de datos
