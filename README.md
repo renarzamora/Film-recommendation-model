@@ -47,6 +47,7 @@ Utilizamos una matriz TF-IDF para representar los títulos de las películas con
 Calculamos la similitud coseno entre la búsqueda y los títulos de las películas, cosine_similarity nos da la similitud de películas, volcamos el resultado en un dataframe y los ordenamos por la columna score de forma descendente y retornamos los 5 primeros registros.
 
 ### Video de demostración
+https://drive.google.com/file/d/1k9D0zafwpMqE5KYn-xxYQ3hRlrf9j2bT/view?usp=sharing
 
 ### Autor
 Renar zamora
