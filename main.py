@@ -193,7 +193,7 @@ def recomendacion(titulo:str):
     # Función para realizar el entrenamiento y obtener las recomendaciones
     def get_recommendations(search_word, df):
         # Crear una matriz TF-IDF para representar los títulos de las películas
-        stopwords = ["to", "of", "the", "and", "&", ":", "in", "for", "on", "a", "by", "with", "an", "into", "from"]
+        stopwords = {["to", "of", "the", "and", "&", ":", "in", "for", "on", "a", "by", "with", "an", "into", "from"]}
         tfidf_vectorizer = TfidfVectorizer(stopwords)
         tfidf_matrix = tfidf_vectorizer.fit_transform(df['title'])
     
