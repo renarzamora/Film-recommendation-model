@@ -39,7 +39,7 @@ https://film-recommendation-model-nzqm.onrender.com/
 
 ### Análisis exploratorio de datos
 **Destacamos la relación entre el budget y la revenue:**
-[![Relación entre budget y revenue](https://github.com/renarzamora/Film-recommendation-model/blob/master/Graficos/budget-revenue.png?raw=true "Relación entre budget y revenue")
+[![Relación entre budget y revenue](https://github.com/renarzamora/Film-recommendation-model/blob/master/Graficos/budget-revenue.png?raw=true "Relación entre budget y revenue"]
 **
 Analizamos los datos atípicos con la variable popularity.**
 ![Outliers de la variable popularity](https://github.com/renarzamora/Film-recommendation-model/blob/master/Graficos/boxplot-popularity.png?raw=true "Outliers de la variable popularity")
